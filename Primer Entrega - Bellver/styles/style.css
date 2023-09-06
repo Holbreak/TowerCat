@@ -1,0 +1,62 @@
+body {
+    background-color: aqua;
+}
+
+.titulo,.texto-vida-torre,.vida {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.titulo {
+    margin-left: 25%
+}
+
+.pantalla {
+    border-style: solid;
+    border-color: black;
+}
+
+.vida-torre {
+    background-color: rgb(57, 115, 132);
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.texto-vida-torre {
+    display: inline;
+    margin-left: 10px;
+}
+
+.fondo {
+    display: grid;
+}
+
+.torre-npc,.gato,.celda,.gatito-liberado {
+    position: absolute;
+    width: 18%; 
+    height: auto; 
+    left: 35%;
+}
+
+.gato,.celda,.gatito-liberado {
+    left: 75%;
+    width: 8%; 
+    height: auto; 
+    left: 75%;
+}
+
+.gatito-liberado {
+    display: none;
+}
+
+.imagen-fondo {
+    width: 100%;
+}
+
+.box-armas {
+    margin-top: 25px;
+}
+
+.arma {
+    vertical-align: top;
+    height: 70px;
+}
