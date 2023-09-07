@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    <h1 class="titulo">Destruye la torre y salva al gatito!</h1>
+    <h1 class="titulo">¡Destruye la torre y salva al gatito!</h1>
         <div class="pantalla">
-            <div class="texto-cuanta-vida">
+            <div class="texto-info">
                 <div class="vida-torre">
                     <p class="texto-vida-torre">Vida de la torre:</p> 
-                    <span id="vidaTorreDisplay">150</span>
+                    <span id="vidaTorreDisplay" class="texto-vida-torre-span">150</span>
+                    <p class="usuario">Usuario: <span id="nombreUsuario"></span></p>
                 </div>
             </div>
             <div class="fondo">
@@ -24,13 +25,14 @@
             </div>
         </div>
 
-        <div class="box-armas">
-            <button class="arma" class="attackButton">Cañon
+        <div class="box-botones">
+            <button class="arma attackButton"><strong>Cañon</strong>
                 <img src="assets/Canon.png">
             </button>
-            <button class="arma" class="attackButton">Soldado
+            <button class="arma attackButton"><strong>Soldado</strong>
                 <img src="assets/Soldado.png">
             </button>
+            <button id="restart" class="boton-reiniciar"><img class="reiniciar" src="assets/reload.png"></button>
         </div>
     <script src="scripts/main.js"></script>
 </body>

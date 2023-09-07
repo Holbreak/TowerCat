@@ -1,29 +1,45 @@
 body {
-    background-color: aqua;
+    background-color: #B8BDA8;
+    font-family: 'Open Sans';
 }
 
-.titulo,.texto-vida-torre,.vida {
+.titulo,.texto-info,.vida,.usuario {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .titulo {
-    margin-left: 25%
+    margin-left: 34%;
+    color: #262823;
 }
 
 .pantalla {
-    border-style: solid;
+    border-style: none;
     border-color: black;
 }
 
 .vida-torre {
-    background-color: rgb(57, 115, 132);
-    padding-top: 5px;
-    padding-bottom: 5px;
+    background-color: #3B493A;
+    padding: 8px 0 5px 0;
+    border-radius: 20px;
+    margin-bottom: 8px;
 }
 
-.texto-vida-torre {
+.texto-vida-torre,.usuario{
     display: inline;
     margin-left: 10px;
+    color: #B8BDA8;
+    font-weight: 800;
+}
+
+.usuario {
+    font-weight: bold;
+}
+
+.texto-vida-torre-span{
+    display: inline;
+    color: #B8BDA8;
+    font-weight: 800;
+    font-family: fantasy;
 }
 
 .fondo {
@@ -50,13 +66,52 @@ body {
 
 .imagen-fondo {
     width: 100%;
+    border-radius: 20px;
 }
 
-.box-armas {
+.box-botones {
+    display: flex;
+    justify-content: center;
     margin-top: 25px;
+    gap: 1rem;
+    margin-left: 50px;
 }
 
 .arma {
     vertical-align: top;
     height: 70px;
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 5rem 1.5rem 1rem 1.5rem;
+    cursor: pointer;
+    border-radius: 16px;
+    background: #7a7d6f;
+    border-style: none;
+    color: #262823;
+    box-shadow: -1px 5px 5px -1px rgba(38,40,35,0.38);
+}
+
+.arma:hover {
+    background: #8c907f;
+}
+
+.boton-reiniciar {
+    visibility: hidden;
+    border-radius: 16px;
+    background: none;
+    border-style: none;
+    color: #4d4f46;
+    font-weight: 600;
+    cursor: pointer;
+    height: fit-content;
+}
+
+.reiniciar {
+    width: 90px;
+    height: 90px;
+    padding: 3px;
+}
+
+.boton-reiniciar:hover {
+    background: rgba(146, 149, 134, 0.5);
 }
