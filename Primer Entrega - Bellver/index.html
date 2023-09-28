@@ -7,13 +7,23 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    <h1 class="titulo">¡Destruye la torre y salva al gatito!</h1>
+    <div class="box-titulo">
+        <h1 class="titulo">¡Destruye la torre y salva al gatito!</h1>
+    </div>
         <div class="pantalla">
             <div class="texto-info">
                 <div class="vida-torre">
                     <p class="texto-vida-torre">Vida de la torre:</p> 
                     <span id="vidaTorreDisplay" class="texto-vida-torre-span">150</span>
                     <p class="usuario">Usuario: <span id="nombreUsuario"></span></p>
+                    <div>
+                        <p class="texto-vida-torre">Seleccione un nivel</p>
+                        <select id="Mapas">
+                            <option value="jungle">Jungla</option>
+                            <option value="tunnel">Tunel</option>
+                            <option value="city">Ciudad</option>
+                        </select>
+                    </div>
                 </div>
             </div>
             <div class="fondo">
@@ -21,20 +31,36 @@
                 <img id="gatito" class="gato" src="assets/Gato.png">
                 <img id="jaula" class="celda" src="assets/Jaula.png">
                 <img id="liberado" class="gatito-liberado" src="assets/GatoLiberado.gif">
-                <img class="imagen-fondo" src="assets/Fondo.png">
+                <img class="imagen-fondo" id="fondo" src="assets/Fondo.png">
             </div>
         </div>
 
-        <div class="box-botones">
-            <button class="arma attackButton"><strong>Cañon</strong>
-                <img src="assets/Canon.png">
-            </button>
-            <button class="arma attackButton"><strong>Soldado</strong>
-                <img src="assets/Soldado.png">
-            </button>
-            <button id="restart" class="boton-reiniciar"><img class="reiniciar" src="assets/reload.png"></button>
+        <div class="interfaz">
+            <div class="box-botones">
+                <div id="armamento">
+                    <button class="arma attackButton"><strong>Cañon</strong>
+                        <img src="assets/Canon.png">
+                    </button>
+                    <button class="arma attackButton"><strong>Soldado</strong>
+                        <img src="assets/Soldado.png">
+                    </button>
+                </div>
+                <button class="push">
+                    <img src="assets/Plus.png">
+                </button>
+                <button id="restart" class="boton-reiniciar"><img class="reiniciar" src="assets/reload.png"></button>
+            </div>
+
+            <div class="search" id="armasInventory" style="display: none;">
+                <h2 class="titulo">Busca y selecciona tu arma!</h2>
+                <div class="inventory">
+                    <input type="text" id="searchInput" placeholder="Escribe el nombre del arma">
+                    <ul id="listaArmas"></ul>
+                </div>
+            </div>
         </div>
     <script src="scripts/main.js"></script>
+    <script src="scripts/push.js"></script>
 </body>
 </html>
 

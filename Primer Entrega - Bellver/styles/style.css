@@ -7,9 +7,10 @@ body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.titulo {
-    margin-left: 34%;
+.box-titulo,.titulo {
     color: #262823;
+    display: flex;
+    justify-content: center;
 }
 
 .pantalla {
@@ -22,6 +23,8 @@ body {
     padding: 8px 0 5px 0;
     border-radius: 20px;
     margin-bottom: 8px;
+    display: flex;
+    align-items: baseline;
 }
 
 .texto-vida-torre,.usuario{
@@ -77,20 +80,62 @@ body {
     margin-left: 50px;
 }
 
-.arma {
+.arma,.push {
     vertical-align: top;
     height: 70px;
     display: flex;
     flex-direction: column-reverse;
     padding: 5rem 1.5rem 1rem 1.5rem;
     cursor: pointer;
-    border-radius: 16px;
     background: #7a7d6f;
-    border-style: none;
+    border-style: solid;
+    border-top: 1px solid #000000;
+    border-right: 1px solid #999999;
+    border-bottom: 1px solid #999999;
+    border-left: 1px solid #000000;
     color: #262823;
     box-shadow: -1px 5px 5px -1px rgba(38,40,35,0.38);
 }
 
+.push {
+    background: none;
+}
+
+.box-nuevaArma {
+    vertical-align: top;
+    padding: 1px;
+    cursor: pointer;
+    background: #7a7d6f;
+    border-style: solid;
+    border-top: 1px solid #000000;
+    border-right: 1px solid #999999;
+    border-bottom: 1px solid #999999;
+    border-left: 1px solid #000000;
+    color: #262823;
+    box-shadow: -1px 5px 5px -1px rgba(38,40,35,0.38);
+    font-weight: 700;
+}
+
+
+.search {
+    border-style: double;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.interfaz {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+
+.inventory {
+    display: contents;
+}
+
+#armamento {
+    display: flex;
+}
 .arma:hover {
     background: #8c907f;
 }
