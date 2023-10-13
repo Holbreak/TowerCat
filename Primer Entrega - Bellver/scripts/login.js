@@ -18,6 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
         };
         const usernameString = JSON.stringify(nombreDeUsuario)
         sessionStorage.setItem("nombreDeUsuario", usernameString);
-        window.location.href = "index.html";
+        window.location.href = "game.html";
     });
 });

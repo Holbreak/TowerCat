@@ -59,7 +59,6 @@ imprimirArma = (nombre, damage, imagen ) => {
         if (botones.childElementCount < 5) {
             const btn = crearBoton(nombre, imagen)
             botones.appendChild(btn)
-            alert("Agregaste " + nombre + " a tu arsenal!")
         }
     })
     return item;
