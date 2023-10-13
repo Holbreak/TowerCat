@@ -4,4 +4,4 @@
 
 Un juegito que hice para mi tercer entrega de CoderHouse
 
-https://bellver-primer-entrega.netlify.app/
+https://bellver-tercer-entrega.netlify.app
