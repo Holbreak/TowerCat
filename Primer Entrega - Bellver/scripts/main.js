@@ -1,7 +1,7 @@
 let vidaTorre = 150;
 let round = 0;
 let gatoEnLaCelda = true
-let nombreDelJugador = "";
+const nombreDelJugador = JSON.parse(sessionStorage.getItem("nombreDeUsuario")).username;
 const mapasObjeto = {
     jungle: {
         nombre: "Jungla",
@@ -22,6 +22,7 @@ const liberado = document.getElementById("liberado");
 const searchInput = document.getElementById("searchInput");
 const listaArmas = document.getElementById("listaArmas");
 const dropdownMapas = document.getElementById("Mapas");
+const fondo = document.getElementById("fondo");
 
 const MAX_DAMAGE = 20;
 const MIN_DAMAGE = 5;
@@ -33,9 +34,23 @@ dropdownMapas.addEventListener("change", function() {
 
     if (fondoSeleccionado && fondoSeleccionado.imagen) {
         fondo.src = `${fondoSeleccionado.imagen}`;
-        console.log("Cambiaste el nivel a " + fondoSeleccionado.nombre)
     }
 });
+
+textoDamage = (damage) => {
+    const damageContainer = document.createElement("div");
+    damageContainer.className = "damage-container";
+
+    const damageText = document.createElement("span");
+    damageText.className = "damage-text";
+    damageText.textContent = `-${damage}`;
+
+    damageContainer.appendChild(damageText);
+    document.body.appendChild(damageContainer);
+    damageContainer.addEventListener("animationend", () => {
+        damageContainer.remove();
+    });
+}
 
 atacarTorre = (damage) => {
     vidaTorre -= damage;
@@ -50,7 +65,6 @@ atacarTorre = (damage) => {
         console.log("Felicitaciones!! Liberaste al gatito!");
         reiniciar();
     }
-    console.log(vidaTorre);
     let opacity = vidaTorre / 150;
     torre.style.opacity = opacity;
     document.getElementById("vidaTorreDisplay").textContent = vidaTorre;
@@ -61,6 +75,7 @@ atacarTorreClick = () => {
     if (vidaTorre > 0) {
         const damage = Math.ceil(Math.random() * (MAX_DAMAGE - MIN_DAMAGE)) + MIN_DAMAGE;
         atacarTorre(damage);
+        textoDamage(damage);
     }
 }
 
@@ -85,7 +100,7 @@ tipoArma.forEach(function (tipoArma) {
     tipoArma.addEventListener("click", atacarTorreClick);
 });
 
-while (nombreDelJugador === "" || nombreDelJugador === null) {
+/* while (nombreDelJugador === "" || nombreDelJugador === null) {
     nombreDelJugador = prompt("Porfavor insertar nombre del usuario:");
     if (nombreDelJugador === null || nombreDelJugador.trim() === "") {
         alert("ingresa un nombre de usuario valido");
@@ -93,7 +108,7 @@ while (nombreDelJugador === "" || nombreDelJugador === null) {
     }
 }
 
-console.log("Bienvenido, " + nombreDelJugador);
+console.log("Bienvenido, " + nombreDelJugador); */
 
 const usuarioSpan = document.getElementById("nombreUsuario");
 usuarioSpan.textContent = nombreDelJugador;

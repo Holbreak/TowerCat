@@ -1,0 +1,16 @@
+{
+    "mapasObjeto": {
+        "jungle": {
+            "nombre": "Jungla",
+            "imagen": "assets/Fondo.png"
+        },
+        "tunnel": {
+            "nombre": "Tunel",
+            "imagen": "assets/Fondo2.png"
+        },
+        "city": {
+            "nombre": "Ciudad",
+            "imagen": "assets/Fondo3.png"
+        }
+    }
+}

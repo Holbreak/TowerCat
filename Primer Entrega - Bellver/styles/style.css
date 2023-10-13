@@ -160,3 +160,28 @@ body {
 .boton-reiniciar:hover {
     background: rgba(146, 149, 134, 0.5);
 }
+
+.damage-container {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    font-size: 24px;
+    animation: pop-out 1s ease-in-out;
+}
+
+.damage-text {
+    font-size: 24px;
+    color: rgb(255, 255, 255);
+    animation: pop-out 1s ease-in-out;
+}
+
+@keyframes pop-out {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
