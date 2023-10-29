@@ -1,6 +1,15 @@
 let vidaTorre = 150;
-let round = 0;
 let gatoEnLaCelda = true
+let torreContador;
+
+document.addEventListener("DOMContentLoaded", ()=> {
+    torreContador = parseInt(localStorage.getItem("torresDestruidas")) || 0;
+    document.getElementById("contadorTorre").textContent = torreContador;
+    if (torreContador === null) {
+        torreContador = 0;
+    } else {
+        torreContador = parseInt(torreContador);
+}})
 const nombreDelJugador = JSON.parse(sessionStorage.getItem("nombreDeUsuario")).username;
 const mapasObjeto = {
     jungle: {
@@ -17,6 +26,7 @@ const mapasObjeto = {
     }
 };
 
+const switchPageLogin = document.getElementById("switchPageLogin");
 const torre = document.getElementById("torre");
 const liberado = document.getElementById("liberado");
 const searchInput = document.getElementById("searchInput");
@@ -26,6 +36,10 @@ const fondo = document.getElementById("fondo");
 
 const MAX_DAMAGE = 20;
 const MIN_DAMAGE = 5;
+
+switchPageLogin.addEventListener("click", () => {
+    window.location.href = "index.html";
+});
 
 dropdownMapas.addEventListener("change", function() {
     const nivelSeleccionado = dropdownMapas.value;
@@ -54,21 +68,17 @@ textoDamage = (damage) => {
 
 atacarTorre = (damage) => {
     vidaTorre -= damage;
-    round += 1;
-    console.log("Estas en el round " + round);
     if (vidaTorre <= 0) {
         vidaTorre = 0;
         gatoEnLaCelda = false;
         document.getElementById("jaula").style.display = "none";
         document.getElementById("gatito").style.display = "none";
         liberado.style.display = "block";
-        console.log("Felicitaciones!! Liberaste al gatito!");
         reiniciar();
     }
     let opacity = vidaTorre / 150;
     torre.style.opacity = opacity;
     document.getElementById("vidaTorreDisplay").textContent = vidaTorre;
-
 }
 
 atacarTorreClick = () => {
@@ -82,6 +92,18 @@ atacarTorreClick = () => {
 reiniciar = () => {
     if (vidaTorre === 0) {
         document.getElementById("restart").style.visibility = "visible";
+        torreContador += 1;
+        document.getElementById("contadorTorre").textContent = torreContador;
+        localStorage.setItem("torresDestruidas", torreContador);
+        Swal.fire({
+            title: 'Felicitaciones, liberaste al gatito!',
+            width: 600,
+            padding: '3em',
+            color: '#284435',
+            allowOutsideClick: false,
+            confirmButtonColor: '#284435',
+            background: '#fff url(/assets/Sign.png)',
+        })
     }
     document.getElementById("restart").addEventListener("click", () => {
         vidaTorre = 150;
@@ -99,16 +121,6 @@ const tipoArma = document.querySelectorAll(".arma");
 tipoArma.forEach(function (tipoArma) {
     tipoArma.addEventListener("click", atacarTorreClick);
 });
-
-/* while (nombreDelJugador === "" || nombreDelJugador === null) {
-    nombreDelJugador = prompt("Porfavor insertar nombre del usuario:");
-    if (nombreDelJugador === null || nombreDelJugador.trim() === "") {
-        alert("ingresa un nombre de usuario valido");
-        nombreDelJugador = "";
-    }
-}
-
-console.log("Bienvenido, " + nombreDelJugador); */
 
 const usuarioSpan = document.getElementById("nombreUsuario");
 usuarioSpan.textContent = nombreDelJugador;
